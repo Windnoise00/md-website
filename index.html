@@ -103,7 +103,7 @@
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">darkmode on</button>
+  <button class="theme-toggle" onclick="toggleTheme()"></button>
 
   <div class="img-frame">
     <img src="image1.jpeg" alt="windlab" />
@@ -132,11 +132,9 @@
       }
     }
 
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      document.documentElement.dataset.theme = saved;
-      if (saved === 'dark') document.querySelector('.theme-toggle').textContent = 'darkmode off';
-    }
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.dataset.theme = saved;
+    document.querySelector('.theme-toggle').textContent = saved === 'dark' ? 'darkmode on' : 'darkmode off';
   </script>
 </body>
 </html>
