@@ -32,10 +32,38 @@
       letter-spacing: 0.01em;
       color: #2c2c2a;
     }
+
+    .links {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .links a {
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      color: #8a8880;
+      text-decoration: none;
+      border-bottom: 1px solid #8a8880;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .links a:hover {
+      color: #1a1a18;
+      border-color: #1a1a18;
+    }
   </style>
 </head>
 <body>
-  <img src="image1.jpeg" alt="windlab" />
+  <img src="image1.jpg" alt="windlab" />
   <p>welcome to nothing</p>
+  <div class="links">
+    <a href="https://www.instagram.com/nullvoid.qx/">instagram</a>
+    <a href="mailto:windlost@tuta.com">email</a>
+    <a href="https://github.com/Windnoise00">github</a>
+  </div>
 </body>
 </html>
