@@ -1,26 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>windlab.dev</title>
   <style>
+    :root {
+      --bg: #eceff4;
+      --text: #2e3440;
+      --muted: #4c566a;
+      --accent: #3b4252;
+      --frame: #d8dee9;
+    }
+
+    [data-theme="dark"] {
+      --bg: #2e3440;
+      --text: #eceff4;
+      --muted: #4c566a;
+      --accent: #d8dee9;
+      --frame: #3b4252;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #f7f5f2;
-      color: #1a1a18;
+      background: var(--bg);
+      color: var(--text);
       font-family: Georgia, serif;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 4rem 1.5rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .img-frame {
+      max-width: 680px;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--frame);
+      background: var(--bg);
+      transition: border-color 0.3s, background 0.3s;
     }
 
     img {
       width: 100%;
-      max-width: 680px;
       height: auto;
       display: block;
     }
@@ -30,7 +55,7 @@
       font-size: 1.4rem;
       font-weight: 300;
       letter-spacing: 0.01em;
-      color: #2c2c2a;
+      color: var(--accent);
     }
 
     .links {
@@ -44,25 +69,74 @@
       font-size: 0.9rem;
       letter-spacing: 0.1em;
       text-transform: lowercase;
-      color: #8a8880;
+      color: var(--muted);
       text-decoration: none;
-      border-bottom: 1px solid #8a8880;
+      border-bottom: 1px solid var(--muted);
       padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
 
     .links a:hover {
-      color: #1a1a18;
-      border-color: #1a1a18;
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: 1px solid var(--frame);
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle:hover {
+      color: var(--text);
+      border-color: var(--text);
     }
   </style>
 </head>
 <body>
-  <img src="image1.jpeg" alt="windlab" />
+  <button class="theme-toggle" onclick="toggleTheme()">dark</button>
+
+  <div class="img-frame">
+    <img src="image1.jpeg" alt="windlab" />
+  </div>
+
   <p>welcome to nothing</p>
+
   <div class="links">
+    <a href="https://www.instagram.com/nullvoid.qx/">instagram</a>
     <a href="mailto:windlost@tuta.com">email</a>
     <a href="https://github.com/Windnoise00">github</a>
   </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.querySelector('.theme-toggle');
+      if (html.dataset.theme === 'light') {
+        html.dataset.theme = 'dark';
+        btn.textContent = 'light';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.dataset.theme = 'light';
+        btn.textContent = 'dark';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      document.documentElement.dataset.theme = saved;
+      if (saved === 'dark') document.querySelector('.theme-toggle').textContent = 'light';
+    }
+  </script>
 </body>
 </html>
