@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>windlab.dev</title>
+  <title>now — windlab.dev</title>
   <style>
     :root {
       --bg: #eceff4;
@@ -35,40 +35,55 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    .img-frame {
+    main {
+      width: 100%;
       max-width: 680px;
-      width: 100%;
-      padding: 10px;
-      border: 1px solid var(--frame);
-      background: var(--bg);
-      transition: border-color 0.3s, background 0.3s;
     }
 
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
+    header {
+      margin-bottom: 3rem;
     }
 
-    p {
-      margin-top: 2.5rem;
-      font-size: 1.4rem;
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h2 {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--frame);
+    }
+
+    section p {
+      font-size: 1.05rem;
       font-weight: 300;
-      letter-spacing: 0.01em;
+      line-height: 1.8;
       color: var(--accent);
     }
 
-    .links {
-      display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .links a {
-      font-family: Georgia, serif;
-      font-size: 0.9rem;
+    .back {
+      display: inline-block;
+      margin-top: 3rem;
+      font-size: 0.85rem;
       letter-spacing: 0.1em;
-      text-transform: lowercase;
       color: var(--muted);
       text-decoration: none;
       border-bottom: 1px solid var(--muted);
@@ -76,7 +91,7 @@
       transition: color 0.2s, border-color 0.2s;
     }
 
-    .links a:hover {
+    .back:hover {
       color: var(--text);
       border-color: var(--text);
     }
@@ -105,17 +120,34 @@
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">darkmode on</button>
 
-  <div class="img-frame">
-    <img src="image1.jpeg" alt="windlab" />
-  </div>
+  <main>
+    <header>
+      <h1>now</h1>
+      <p>what i'm up to — march 2026</p>
+    </header>
 
-  <p>welcome to nothing</p>
+    <section>
+      <h2>learning</h2>
+      <p>Working through HTML and markdown to get more comfortable building for the web. Nothing to show off yet, but this site is part of that process.</p>
+    </section>
 
-  <div class="links">
-    <a href="mailto:windlost@tuta.com">email</a>
-    <a href="https://github.com/Windnoise00">github</a>
-    <a href="/now.html">now</a>
-  </div>
+    <section>
+      <h2>tinkering</h2>
+      <p>Messing around with ARM SBCs and building out Tailscale reverse proxy nodes — the idea being that a small low-powered machine on someone's network can give them access to my services without any port forwarding headaches.</p>
+    </section>
+
+    <section>
+      <h2>self-hosting</h2>
+      <p>Steadily expanding what I run myself and trying to understand more of the underlying pieces rather than just following guides.</p>
+    </section>
+
+    <section>
+      <h2>health</h2>
+      <p>Trying to get to the gym more consistently and eat better. Work in progress.</p>
+    </section>
+
+    <a href="/" class="back">← back</a>
+  </main>
 
   <script>
     function toggleTheme() {
