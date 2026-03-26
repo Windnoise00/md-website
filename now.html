@@ -155,11 +155,11 @@
       const btn = document.querySelector('.theme-toggle');
       if (html.dataset.theme === 'light') {
         html.dataset.theme = 'dark';
-        btn.textContent = 'darkmode off';
+        btn.textContent = 'darkmode on';
         localStorage.setItem('theme', 'dark');
       } else {
         html.dataset.theme = 'light';
-        btn.textContent = 'darkmode on';
+        btn.textContent = 'darkmode off';
         localStorage.setItem('theme', 'light');
       }
     }
